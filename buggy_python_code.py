@@ -1,4 +1,4 @@
-import sys 
+import sys
 import os
 import yaml
 import flask
@@ -27,8 +27,8 @@ def fetch_website(urllib_version, url):
     # Import the requested version (2 or 3) of urllib
     exec(f"import urllib{urllib_version} as urllib", globals())
     # Fetch and print the requested URL
- 
-    try: 
+
+    try:
         http = urllib.PoolManager()
         r = http.request('GET', url)
     except:
@@ -39,11 +39,13 @@ def load_yaml(filename):
     stream = open(filename)
     deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
-    
+
+
 def authenticate(password):
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
     print("Successfully authenticated!")
+
 
 if __name__ == '__main__':
     print("Vulnerabilities:")
